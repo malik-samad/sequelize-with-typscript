@@ -1,0 +1,19 @@
+version: '3'
+name: sequelize-with-typescript
+services:
+  local-sql-db:
+    image: mysql:latest
+    container_name: local-sql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: sequelize-with-typescript
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql # change this path as per your preference
+
+volumes:
+  mysql-data:
